@@ -132,6 +132,11 @@ local BLOCKED_PATTERNS = {
     "_backtank$",
 }
 
+local IMPORTABLE_PATTERNS = {
+    "^minecraft:.*_dye$",
+    "^minecraft:.*_wool$",
+}
+
 local colony = peripheral.find("colony_integrator")
 local bridge = peripheral.find("me_bridge")
 local warehouse = peripheral.find("minecolonies:warehouse")
@@ -146,6 +151,16 @@ local warehouseName = peripheral.getName(warehouse)
 
 local function log(message)
     print(os.date("%H:%M:%S") .. " | " .. tostring(message))
+end
+
+local function matchesImportablePattern(itemName)
+    for _, pattern in ipairs(IMPORTABLE_PATTERNS) do
+        if itemName:match(pattern) then
+            return true
+        end
+    end
+
+    return false
 end
 
 local function isBlockedFinishedItem(itemName)
@@ -179,7 +194,15 @@ local function isIgnoredRequestItem(itemName)
 end
 
 local function isImportableBaseMaterial(itemName)
-    return config.importableBaseMaterials[itemName] == true
+    if IMPORTABLE_BASE_MATERIALS[itemName] then
+        return true
+    end
+
+    if matchesImportablePattern(itemName) then
+        return true
+    end
+
+    return false
 end
 
 local function indexWarehouse()
