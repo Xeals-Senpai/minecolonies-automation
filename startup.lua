@@ -74,6 +74,12 @@ local config = {
         ["minecraft:diamond"] = true,
         ["minecraft:netherite_ingot"] = true,
 
+        -- Food
+        ["minecraft:beef"] = true,
+        ["minecraft:chicken "] = true,
+        ["minecraft:mutton"] = true,
+        ["minecraft:porkchop"] = true,
+
         -- Smithing Templates
         ["minecraft:netherite_upgrade_smithing_template"] = true,
 
