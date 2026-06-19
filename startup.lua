@@ -161,6 +161,20 @@ local IGNORED_PATTERNS = {
     "_ore$",
 }
 
+local function isIgnoredRequestItem(itemName)
+    if isBlockedFinishedItem(itemName) then
+        return true
+    end
+
+    for _, pattern in ipairs(IGNORED_PATTERNS) do
+        if itemName:match(pattern) then
+            return true
+        end
+    end
+
+    return false
+end
+
 local function isImportableBaseMaterial(itemName)
     return config.importableBaseMaterials[itemName] == true
 end
@@ -274,24 +288,18 @@ local function handleRequest(req, warehouseInventory, notImported)
         end
     end
 
-    local requestedAmount = req.count or req.minCount or 1
-    if req.items then
-        for _, item in pairs(req.items) do
-            trackNotImported(
-                notImported,
-                item.name or requestName,
-                item.count or req.count or 1,
-                "not in import list"
-            )
-        end
-    else
+for _, item in pairs(req.items) do
+    local missingItemName = item.name or requestName
+
+    if not isIgnoredRequestItem(missingItemName) then
         trackNotImported(
             notImported,
-            requestName,
-            req.count or 1,
+            missingItemName,
+            item.count or req.count or 1,
             "not in import list"
         )
     end
+end
 
     log("No importable base material found for request: " .. requestName)
 end
