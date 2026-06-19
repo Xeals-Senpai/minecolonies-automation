@@ -62,6 +62,7 @@ local config = {
         ["minecraft:coarse_dirt"] = true,
         ["minecraft:clay"] = true,
         ["minecraft:fern"] = true,
+        ["minecraft:bone_meal"] = true,
         
         -- Nether Materials
         ["minecraft:netherrack"] = true,
@@ -225,6 +226,7 @@ local IGNORED_PATTERNS = {
 }
 
 local ORE_MODS = {
+    minecraft = true,
     alltheores = true,
     immersiveengineering = true,
 }
