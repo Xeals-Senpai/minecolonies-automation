@@ -194,7 +194,7 @@ local function isIgnoredRequestItem(itemName)
 end
 
 local function isImportableBaseMaterial(itemName)
-    if IMPORTABLE_BASE_MATERIALS[itemName] then
+    if config.importableBaseMaterials[itemName] then
         return true
     end
 
