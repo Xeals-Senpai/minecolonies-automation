@@ -237,6 +237,24 @@ local function handleRequests()
     end
 end
 
+local function printNotImportedSummary(notImported)
+    local hasItems = false
+
+    print("")
+    print("=== Items Not Imported ===")
+
+    for itemName, data in pairs(notImported) do
+        hasItems = true
+        print(itemName .. " x" .. data.count .. " (" .. data.reason .. ")")
+    end
+
+    if not hasItems then
+        print("None")
+    end
+
+    print("==========================")
+end
+
 local function mainLoop()
     clearBufferToWarehouse()
     handleRequests()
