@@ -111,6 +111,33 @@ local config = {
     }
 }
 
+local function isSafePlainResource(item)
+    if not item or not item.name then return false end
+
+    -- This is the important one.
+    -- Anything with NBT/component data is too risky for MineColonies automation.
+    if item.nbt then return false end
+
+    local name = item.name
+
+    local blockedWords = {
+        "helmet", "chestplate", "leggings", "boots",
+        "sword", "pickaxe", "axe", "shovel", "hoe",
+        "bow", "crossbow", "trident",
+        "book", "spell", "scroll", "wand", "staff",
+        "ring", "amulet", "charm", "curio",
+        "gem", "jewel"
+    }
+
+    for _, word in ipairs(blockedWords) do
+        if name:find(word) then
+            return false
+        end
+    end
+
+    return true
+end
+
 local ALLOWED_EQUIPMENT_PATTERNS = {
     -- Vanilla tools / weapons
     "^minecraft:iron_",
@@ -138,27 +165,6 @@ local EQUIPMENT_PATTERNS = {
     "_bow$",
     "_crossbow$",
     "_shield$",
-}
-
-local BLOCKED_PATTERNS = {
-    "_helmet$",
-    "_chestplate$",
-    "_leggings$",
-    "_boots$",
-
-    "_sword$",
-    "_pickaxe$",
-    "_axe$",
-    "_shovel$",
-    "_hoe$",
-
-    "_bow$",
-    "_crossbow$",
-    "_shield$",
-
-    "_mask$",
-    "_goggles$",
-    "_backtank$",
 }
 
 local IMPORTABLE_PATTERNS = {
@@ -212,16 +218,6 @@ local function matchesImportablePattern(itemName)
     return false
 end
 
-local function isBlockedFinishedItem(itemName)
-    for _, pattern in ipairs(BLOCKED_PATTERNS) do
-        if itemName:match(pattern) then
-            return true
-        end
-    end
-
-    return false
-end
-
 local IGNORED_PATTERNS = {
     "_ore$",        -- minecraft:iron_ore
     "_ore_",        -- immersiveengineering:deepslate_ore_aluminum
@@ -265,6 +261,10 @@ local function isImportableBaseMaterial(itemName)
     end
 
     if matchesImportablePattern(itemName) then
+        return true
+    end
+
+    if isAllowedEquipment(itemName) then
         return true
     end
 
