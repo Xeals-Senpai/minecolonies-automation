@@ -195,24 +195,6 @@ local function trackNotImported(notImported, itemName, count, reason)
     end
 end
 
-local function printNotImportedSummary(notImported)
-    local hasItems = false
-
-    print("")
-    print("=== Items Not Imported ===")
-
-    for itemName, data in pairs(notImported) do
-        hasItems = true
-        print(itemName .. " x" .. data.count .. " (" .. data.reason .. ")")
-    end
-
-    if not hasItems then
-        print("None")
-    end
-
-    print("==========================")
-end
-
 local function handleRequest(req, warehouseInventory, notImported)
     local requestName = tostring(req.name or "unknown request")
 
@@ -246,9 +228,47 @@ local function handleRequest(req, warehouseInventory, notImported)
     end
 
     local requestedAmount = req.count or req.minCount or 1
-    trackNotImported(notImported, requestName, requestedAmount, "not in import list")
+    if req.items then
+        for _, item in pairs(req.items) do
+            trackNotImported(
+                notImported,
+                item.name or requestName,
+                item.count or req.count or 1,
+                "not in import list"
+            )
+        end
+    else
+        trackNotImported(
+            notImported,
+            requestName,
+            req.count or 1,
+            "not in import list"
+        )
+    end
 
     log("No importable base material found for request: " .. requestName)
+end
+
+local function printNotImportedSummary(notImported)
+    print("")
+    print("========================================")
+    print("      Items Missing Import Rules")
+    print("========================================")
+    print("")
+
+    local hasItems = false
+
+    for itemName, data in pairs(notImported) do
+        hasItems = true
+        print(string.format("%-34s x%s", itemName, data.count))
+    end
+
+    if not hasItems then
+        print("None")
+    end
+
+    print("")
+    print("========================================")
 end
 
 local function handleRequests()
