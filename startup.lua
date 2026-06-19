@@ -61,6 +61,7 @@ local config = {
         ["minecraft:clay_ball"] = true,
         ["minecraft:coarse_dirt"] = true,
         ["minecraft:clay"] = true,
+        ["minecraft:fern"] = true,
         
         -- Nether Materials
         ["minecraft:netherrack"] = true,
