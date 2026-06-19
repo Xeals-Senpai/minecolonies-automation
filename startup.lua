@@ -63,7 +63,7 @@ local config = {
         ["minecraft:clay"] = true,
         ["minecraft:fern"] = true,
         ["minecraft:bone_meal"] = true,
-        
+
         -- Nether Materials
         ["minecraft:netherrack"] = true,
         ["minecraft:nether_bricks"] = true,
@@ -357,10 +357,13 @@ local function handleRequest(req, warehouseInventory, notImported)
         log("Skipping request with no item options: " .. requestName)
         return
     end
-
+    
     for _, item in pairs(req.items) do
         local itemName = item.name
 
+        if isIgnoredRequestItem(itemName) then
+            return
+        end
         if itemName and isImportableBaseMaterial(itemName) then
             local requestedAmount = getRequestAmount(req, item)
             local warehouseAmount = warehouseInventory[itemName] or 0
