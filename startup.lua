@@ -128,7 +128,7 @@ local config = {
         "_mask$",
         "_goggles$",
         "_backtank$",
-}
+    }
 }
 
 local colony = peripheral.find("colony_integrator")
