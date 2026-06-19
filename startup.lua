@@ -111,6 +111,35 @@ local config = {
     }
 }
 
+local ALLOWED_EQUIPMENT_PATTERNS = {
+    -- Vanilla tools / weapons
+    "^minecraft:iron_",
+    "^minecraft:golden_",
+    "^minecraft:diamond_",
+
+    -- Allthemodium tiers
+    "^allthemodium:allthemodium_",
+    "^allthemodium:vibranium_",
+    "^allthemodium:unobtainium_",
+}
+
+local EQUIPMENT_PATTERNS = {
+    "_helmet$",
+    "_chestplate$",
+    "_leggings$",
+    "_boots$",
+
+    "_sword$",
+    "_pickaxe$",
+    "_axe$",
+    "_shovel$",
+    "_hoe$",
+
+    "_bow$",
+    "_crossbow$",
+    "_shield$",
+}
+
 local BLOCKED_PATTERNS = {
     "_helmet$",
     "_chestplate$",
@@ -153,6 +182,26 @@ local function log(message)
     print(os.date("%H:%M:%S") .. " | " .. tostring(message))
 end
 
+local function isEquipment(itemName)
+    for _, pattern in ipairs(EQUIPMENT_PATTERNS) do
+        if itemName:match(pattern) then
+            return true
+        end
+    end
+
+    return false
+end
+
+local function isAllowedEquipment(itemName)
+    for _, pattern in ipairs(ALLOWED_EQUIPMENT_PATTERNS) do
+        if itemName:match(pattern) then
+            return true
+        end
+    end
+
+    return false
+end
+
 local function matchesImportablePattern(itemName)
     for _, pattern in ipairs(IMPORTABLE_PATTERNS) do
         if itemName:match(pattern) then
@@ -179,8 +228,25 @@ local IGNORED_PATTERNS = {
     ":ore_",        -- immersiveengineering:ore_lead
 }
 
+local ORE_MODS = {
+    alltheores = true,
+    immersiveengineering = true,
+}
+
+local function isIgnoredOre(itemName)
+    local namespace, path = itemName:match("^([^:]+):(.+)$")
+
+    return namespace
+        and ORE_MODS[namespace]
+        and path:find("ore", 1, true) ~= nil
+end
+
 local function isIgnoredRequestItem(itemName)
-    if isBlockedFinishedItem(itemName) then
+    if isIgnoredOre(itemName) then
+        return true
+    end
+
+    if isEquipment(itemName) and not isAllowedEquipment(itemName) then
         return true
     end
 
@@ -314,20 +380,18 @@ local function handleRequest(req, warehouseInventory, notImported)
         end
     end
 
-for _, item in pairs(req.items) do
-    local missingItemName = item.name or requestName
+    for _, item in pairs(req.items) do
+        local missingItemName = item.name or requestName
 
-    if not isIgnoredRequestItem(missingItemName) then
-        trackNotImported(
-            notImported,
-            missingItemName,
-            item.count or req.count or 1,
-            "not in import list"
-        )
+        if not isIgnoredRequestItem(missingItemName) then
+            trackNotImported(
+                notImported,
+                missingItemName,
+                item.count or req.count or 1,
+                "not in import list"
+            )
+        end
     end
-end
-
-    log("No importable base material found for request: " .. requestName)
 end
 
 local function printNotImportedSummary(notImported)
