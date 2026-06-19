@@ -184,7 +184,36 @@ local function supplyWarehouse(itemName, amount)
     return moved
 end
 
-local function handleRequest(req, warehouseInventory)
+local function trackNotImported(notImported, itemName, count, reason)
+    if notImported[itemName] then
+        notImported[itemName].count = notImported[itemName].count + count
+    else
+        notImported[itemName] = {
+            count = count,
+            reason = reason
+        }
+    end
+end
+
+local function printNotImportedSummary(notImported)
+    local hasItems = false
+
+    print("")
+    print("=== Items Not Imported ===")
+
+    for itemName, data in pairs(notImported) do
+        hasItems = true
+        print(itemName .. " x" .. data.count .. " (" .. data.reason .. ")")
+    end
+
+    if not hasItems then
+        print("None")
+    end
+
+    print("==========================")
+end
+
+local function handleRequest(req, warehouseInventory, notImported)
     local requestName = tostring(req.name or "unknown request")
 
     if not req.items then
@@ -216,6 +245,9 @@ local function handleRequest(req, warehouseInventory)
         end
     end
 
+    local requestedAmount = req.count or req.minCount or 1
+    trackNotImported(notImported, requestName, requestedAmount, "not in import list")
+
     log("No importable base material found for request: " .. requestName)
 end
 
@@ -230,29 +262,14 @@ local function handleRequests()
     end
 
     local warehouseInventory = indexWarehouse()
+    local notImported = {}
 
     for _, req in pairs(requests) do
-        handleRequest(req, warehouseInventory)
+        handleRequest(req, warehouseInventory, notImported)
         sleep(0.1)
     end
-end
 
-local function printNotImportedSummary(notImported)
-    local hasItems = false
-
-    print("")
-    print("=== Items Not Imported ===")
-
-    for itemName, data in pairs(notImported) do
-        hasItems = true
-        print(itemName .. " x" .. data.count .. " (" .. data.reason .. ")")
-    end
-
-    if not hasItems then
-        print("None")
-    end
-
-    print("==========================")
+    printNotImportedSummary(notImported)
 end
 
 local function mainLoop()
