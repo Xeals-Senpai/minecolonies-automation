@@ -142,7 +142,6 @@ end
 local ALLOWED_EQUIPMENT_PATTERNS = {
     -- Vanilla tools / weapons
     "^minecraft:iron_",
-    "^minecraft:golden_",
     "^minecraft:diamond_",
 
     -- Allthemodium tiers
