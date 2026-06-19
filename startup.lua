@@ -59,6 +59,11 @@ local config = {
         ["minecraft:red_sand"] = true,
         ["minecraft:gravel"] = true,
         ["minecraft:clay_ball"] = true,
+        ["minecraft:coarse_dirt"] = true,
+        
+        -- Nether Materials
+        ["minecraft:netherrack"] = true,
+        ["minecraft:nether_bricks"] = true,
 
         -- Common building materials
         ["minecraft:glass"] = true,
@@ -90,6 +95,7 @@ local config = {
         ["minecraft:string"] = true,
         ["minecraft:torch"] = true,
         ["minecolonies:large_empty_bottle"] = true,
+        ["minecolonies:ancienttome"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
