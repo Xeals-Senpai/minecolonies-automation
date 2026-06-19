@@ -68,6 +68,7 @@ local config = {
 
         -- Fuel / metals
         ["minecraft:coal"] = true,
+        ["minecraft:coal_block"] = true,
         ["minecraft:charcoal"] = true,
         ["minecraft:iron_ingot"] = true,
         ["minecraft:copper_ingot"] = true,
@@ -76,9 +77,10 @@ local config = {
 
         -- Food
         ["minecraft:beef"] = true,
-        ["minecraft:chicken "] = true,
+        ["minecraft:chicken"] = true,
         ["minecraft:mutton"] = true,
         ["minecraft:porkchop"] = true,
+        ["minecraft:salmon"] = true,
 
         -- Smithing Templates
         ["minecraft:netherite_upgrade_smithing_template"] = true,
@@ -87,6 +89,7 @@ local config = {
         ["minecraft:stick"] = true,
         ["minecraft:string"] = true,
         ["minecraft:torch"] = true,
+        ["minecolonies:large_empty_bottle"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
@@ -98,7 +101,7 @@ local config = {
 local colony = peripheral.find("colony_integrator")
 local bridge = peripheral.find("me_bridge")
 local warehouse = peripheral.find("minecolonies:warehouse")
-local buffer = peripheral.find("inventory")
+local buffer = peripheral.wrap("minecraft:barrel_0")
 
 if not colony then error("No Colony Integrator found") end
 if not bridge then error("No ME Bridge found") end
