@@ -108,27 +108,27 @@ local config = {
         -- ["domum_ornamentum:extra_cobblestone"] = true,
         -- ["domum_ornamentum:extra_oak"] = true,
     }
+}
 
-    local BLOCKED_PATTERNS = {
-        "_helmet$",
-        "_chestplate$",
-        "_leggings$",
-        "_boots$",
+local BLOCKED_PATTERNS = {
+    "_helmet$",
+    "_chestplate$",
+    "_leggings$",
+    "_boots$",
 
-        "_sword$",
-        "_pickaxe$",
-        "_axe$",
-        "_shovel$",
-        "_hoe$",
+    "_sword$",
+    "_pickaxe$",
+    "_axe$",
+    "_shovel$",
+    "_hoe$",
 
-        "_bow$",
-        "_crossbow$",
-        "_shield$",
+    "_bow$",
+    "_crossbow$",
+    "_shield$",
 
-        "_mask$",
-        "_goggles$",
-        "_backtank$",
-    }
+    "_mask$",
+    "_goggles$",
+    "_backtank$",
 }
 
 local colony = peripheral.find("colony_integrator")
