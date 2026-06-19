@@ -108,6 +108,27 @@ local config = {
         -- ["domum_ornamentum:extra_cobblestone"] = true,
         -- ["domum_ornamentum:extra_oak"] = true,
     }
+
+    local BLOCKED_PATTERNS = {
+        "_helmet$",
+        "_chestplate$",
+        "_leggings$",
+        "_boots$",
+
+        "_sword$",
+        "_pickaxe$",
+        "_axe$",
+        "_shovel$",
+        "_hoe$",
+
+        "_bow$",
+        "_crossbow$",
+        "_shield$",
+
+        "_mask$",
+        "_goggles$",
+        "_backtank$",
+}
 }
 
 local colony = peripheral.find("colony_integrator")
@@ -125,6 +146,20 @@ local warehouseName = peripheral.getName(warehouse)
 local function log(message)
     print(os.date("%H:%M:%S") .. " | " .. tostring(message))
 end
+
+local function isBlockedFinishedItem(itemName)
+    for _, pattern in ipairs(BLOCKED_PATTERNS) do
+        if itemName:match(pattern) then
+            return true
+        end
+    end
+
+    return false
+end
+
+local IGNORED_PATTERNS = {
+    "_ore$",
+}
 
 local function isImportableBaseMaterial(itemName)
     return config.importableBaseMaterials[itemName] == true
