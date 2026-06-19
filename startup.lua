@@ -102,6 +102,7 @@ local config = {
         ["minecolonies:ancienttome"] = true,
         ["minecraft:redstone"] = true,
         ["minecraft:redstone_torch"] = true,
+        ["minecraft:bone"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
@@ -158,7 +159,9 @@ local function isBlockedFinishedItem(itemName)
 end
 
 local IGNORED_PATTERNS = {
-    "_ore$",
+    "_ore$",        -- minecraft:iron_ore
+    "_ore_",        -- immersiveengineering:deepslate_ore_aluminum
+    ":ore_",        -- immersiveengineering:ore_lead
 }
 
 local function isIgnoredRequestItem(itemName)
