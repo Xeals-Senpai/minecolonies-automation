@@ -72,6 +72,7 @@ local config = {
         ["minecraft:soul_sand"] = true,
         ["minecraft:red_nether_bricks"] = true,
         ["minecraft:nether_warts"] = true,
+        ["minecraft:glowstone"] = true,
 
 
         -- Common building materials
@@ -80,6 +81,7 @@ local config = {
         ["minecraft:bricks"] = true,
         ["minecraft:brick"] = true,
         ["domum_ornamentum:cactus_extra"] = true,
+        ["domum_ornamentum:white_paper_extra"] = true,
 
         -- Fuel / metals
         ["minecraft:coal"] = true,
@@ -111,7 +113,8 @@ local config = {
         ["minecraft:bone"] = true,
         ["minecraft:slime_ball"] = true,
         ["minecraft:dead_bush"] = true,
-        ["minecraft:sugar_cane"]
+        ["minecraft:sugar_cane"] = true,
+        ["minecraft:prismarine_shard"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
