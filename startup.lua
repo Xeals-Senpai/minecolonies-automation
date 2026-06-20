@@ -79,6 +79,7 @@ local config = {
         ["minecraft:glass_pane"] = true,
         ["minecraft:bricks"] = true,
         ["minecraft:brick"] = true,
+        ["domum_ornamentum:cactus_extra"] = true,
 
         -- Fuel / metals
         ["minecraft:coal"] = true,
