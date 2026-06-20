@@ -70,6 +70,8 @@ local config = {
         ["minecraft:quartz"] = true,
         ["minecraft:quartz_block"] = true,
         ["minecraft:soul_sand"] = true,
+        ["minecraft:red_nether_bricks"] = true,
+        ["minecraft:nether_warts"] = true,
 
 
         -- Common building materials
