@@ -105,6 +105,7 @@ local config = {
         ["minecraft:redstone"] = true,
         ["minecraft:redstone_torch"] = true,
         ["minecraft:bone"] = true,
+        ["minecraft:slime_ball"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
