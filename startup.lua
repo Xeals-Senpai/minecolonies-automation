@@ -69,6 +69,7 @@ local config = {
         ["minecraft:nether_bricks"] = true,
         ["minecraft:quartz"] = true,
         ["minecraft:quartz_block"] = true,
+        ["minecraft:soul_sand"] = true,
 
 
         -- Common building materials
@@ -172,6 +173,7 @@ local EQUIPMENT_PATTERNS = {
 local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_dye$",
     "^minecraft:.*_wool$",
+    "^minecraft:.*_logs$",
 }
 
 local colony = peripheral.find("colony_integrator")
