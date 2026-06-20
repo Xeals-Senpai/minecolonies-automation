@@ -110,6 +110,8 @@ local config = {
         ["minecraft:redstone_torch"] = true,
         ["minecraft:bone"] = true,
         ["minecraft:slime_ball"] = true,
+        ["minecraft:dead_bush"] = true,
+        ["minecraft:sugar_cane"]
 
         -- Add your own EMC-backed base materials below.
         -- Example:
@@ -176,7 +178,6 @@ local EQUIPMENT_PATTERNS = {
 local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_dye$",
     "^minecraft:.*_wool$",
-    "^minecraft:.*_logs$",
 }
 
 local colony = peripheral.find("colony_integrator")
