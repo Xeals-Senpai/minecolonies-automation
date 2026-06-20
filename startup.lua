@@ -186,6 +186,8 @@ local EQUIPMENT_PATTERNS = {
 local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_dye$",
     "^minecraft:.*_wool$",
+    "^minecraft:.*_concrete$",
+    "^minecraft:.*_concrete_powder$",
 }
 
 local colony = peripheral.find("colony_integrator")
