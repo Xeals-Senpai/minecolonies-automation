@@ -31,6 +31,7 @@ local config = {
         ["minecraft:dark_oak_log"] = true,
         ["minecraft:mangrove_log"] = true,
         ["minecraft:cherry_log"] = true,
+        ["regions_unexplored:alpha_log"] = true,
 
         -- Planks
         ["minecraft:oak_planks"] = true,
@@ -41,6 +42,8 @@ local config = {
         ["minecraft:dark_oak_planks"] = true,
         ["minecraft:mangrove_planks"] = true,
         ["minecraft:cherry_planks"] = true,
+        ["regions_unexplored:alpha_planks"] = true,
+        
 
         -- Stone materials
         ["minecraft:cobblestone"] = true,
@@ -115,6 +118,8 @@ local config = {
         ["minecraft:dead_bush"] = true,
         ["minecraft:sugar_cane"] = true,
         ["minecraft:prismarine_shard"] = true,
+        ["minecraft:short_grass"] = true,
+        ["minecraft:tall_grass"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
