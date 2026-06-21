@@ -130,7 +130,6 @@ local config = {
         ["minecraft:dead_bush"] = true,
         ["minecraft:poppy"] = true,
         ["minecraft:dandelion"] = true,
-        ["minecraft:flower_pot"] = true,
         ["minecraft:prismarine_shard"] = true,
         ["minecraft:prismarine_crystals"] = true,
         ["minecrafT:sea_lantern"] = true,
