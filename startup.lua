@@ -43,7 +43,10 @@ local config = {
         ["minecraft:mangrove_planks"] = true,
         ["minecraft:cherry_planks"] = true,
         ["regions_unexplored:alpha_planks"] = true,
-        
+
+        -- Leaves
+        ["minecraft:oak_leaves"] = true,
+        ["minecraft:dark_oak_leaves"] = true,
 
         -- Stone materials
         ["minecraft:cobblestone"] = true,
