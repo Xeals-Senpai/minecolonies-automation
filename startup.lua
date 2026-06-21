@@ -117,16 +117,18 @@ local config = {
         ["minecolonies:ancienttome"] = true,
         ["minecraft:redstone"] = true,
         ["minecraft:redstone_torch"] = true,
+        ["minecraft:sugar_cane"] = true,
+        ["minecraft:prismarine_shard"] = true,
+        
+        -- miscellaneous
+        ["minecraft:rotten_flesh"] = true,
+        ["minecraft:short_grass"] = true,
+        ["minecraft:tall_grass"] = true,
         ["minecraft:bone"] = true,
         ["minecraft:slime_ball"] = true,
         ["minecraft:dead_bush"] = true,
-        ["minecraft:sugar_cane"] = true,
-        ["minecraft:prismarine_shard"] = true,
-        ["minecraft:short_grass"] = true,
-        ["minecraft:tall_grass"] = true,
-
-        -- miscellaneous
-        ["minecraft:rotten_flesh"] = true,
+        ["minecraft:poppy"] = true,
+        ["minecraft:dandelion"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
@@ -197,7 +199,8 @@ local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_concrete_powder$",
     "^minecraft:.*_carpet$",
     "^minecraft:.*_banner$",
-    "^minecraft:.*_terracotta"
+    "^minecraft:.*_terracotta",
+    "^minecraft:.*_sapling"
 }
 
 local colony = peripheral.find("colony_integrator")
