@@ -129,6 +129,7 @@ local config = {
         ["minecraft:dead_bush"] = true,
         ["minecraft:poppy"] = true,
         ["minecraft:dandelion"] = true,
+        ["minecraft:flower_pot"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
