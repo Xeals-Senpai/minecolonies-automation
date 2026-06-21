@@ -119,7 +119,7 @@ local config = {
         ["minecraft:redstone"] = true,
         ["minecraft:redstone_torch"] = true,
         ["minecraft:sugar_cane"] = true,
-        ["minecraft:prismarine_shard"] = true,
+        
         
         -- miscellaneous
         ["minecraft:rotten_flesh"] = true,
@@ -131,6 +131,9 @@ local config = {
         ["minecraft:poppy"] = true,
         ["minecraft:dandelion"] = true,
         ["minecraft:flower_pot"] = true,
+        ["minecraft:prismarine_shard"] = true,
+        ["minecraft:prismarine_crystals"] = true,
+        ["minecrafT:sea_lantern"] = true,
 
         -- Add your own EMC-backed base materials below.
         -- Example:
