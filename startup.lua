@@ -121,6 +121,9 @@ local config = {
         ["minecraft:short_grass"] = true,
         ["minecraft:tall_grass"] = true,
 
+        -- miscellaneous
+        ["minecraft:rotten_flesh"] = true,
+
         -- Add your own EMC-backed base materials below.
         -- Example:
         -- ["domum_ornamentum:extra_cobblestone"] = true,
@@ -188,7 +191,8 @@ local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_wool$",
     "^minecraft:.*_concrete$",
     "^minecraft:.*_concrete_powder$",
-    "^minecraft:.*_carpet$"
+    "^minecraft:.*_carpet$",
+    "^minecraft:.*_banner$"
 }
 
 local colony = peripheral.find("colony_integrator")
