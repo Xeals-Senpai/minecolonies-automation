@@ -196,7 +196,8 @@ local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_concrete$",
     "^minecraft:.*_concrete_powder$",
     "^minecraft:.*_carpet$",
-    "^minecraft:.*_banner$"
+    "^minecraft:.*_banner$",
+    "^minecraft:.*_terracotta"
 }
 
 local colony = peripheral.find("colony_integrator")
