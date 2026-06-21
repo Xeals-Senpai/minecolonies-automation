@@ -86,9 +86,6 @@ local config = {
         ["minecraft:glass_pane"] = true,
         ["minecraft:bricks"] = true,
         ["minecraft:brick"] = true,
-        ["domum_ornamentum:cactus_extra"] = true,
-        ["domum_ornamentum:white_paper_extra"] = true,
-        ["domum_ornamentum:paper_extra"] = true,
 
         -- Fuel / metals
         ["minecraft:coal"] = true,
@@ -206,6 +203,7 @@ local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_terracotta$",
     "^minecraft:.*_sapling$",
     "^domum_ornamentum:.*_carpet$",
+    "^domum_ornamentum:.*_extra$",
 }
 
 local colony = peripheral.find("colony_integrator")
