@@ -104,6 +104,7 @@ local config = {
         ["minecraft:mutton"] = true,
         ["minecraft:porkchop"] = true,
         ["minecraft:salmon"] = true,
+        ["minecraft:potato"] = true,
 
         -- Smithing Templates
         ["minecraft:netherite_upgrade_smithing_template"] = true,
