@@ -88,6 +88,7 @@ local config = {
         ["minecraft:brick"] = true,
         ["domum_ornamentum:cactus_extra"] = true,
         ["domum_ornamentum:white_paper_extra"] = true,
+        ["domum_ornamentum:paper_extra"] = true,
 
         -- Fuel / metals
         ["minecraft:coal"] = true,
