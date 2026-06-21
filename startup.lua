@@ -204,7 +204,7 @@ local IMPORTABLE_PATTERNS = {
     "^minecraft:.*_carpet$",
     "^minecraft:.*_banner$",
     "^minecraft:.*_terracotta$",
-    "^minecraft:.*_sapling$"
+    "^minecraft:.*_sapling$",
     "^domum_ornamentum:.*_carpet$"
 }
 
