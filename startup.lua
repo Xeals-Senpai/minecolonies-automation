@@ -17,7 +17,7 @@
 -- 8. Does not export warehouse contents back to AE2.
 
 local config = {
-    scanInterval = 60,
+    scanInterval = 30,
     meSide = "right",
     bufferSleep = 0.3,
 
