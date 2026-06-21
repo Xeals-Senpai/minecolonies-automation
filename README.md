@@ -370,13 +370,16 @@ Builders continue construction
 
 ## Future Ideas
 
-* Multi-warehouse support
-* Request caching
-* Material usage analytics
-* Courier bottleneck reporting
-* Automatic update utility
-* Colony statistics
-* Discord notifications
+Potential improvements that remain aligned with the project's design philosophy:
+
+* Additional importable material groups.
+* Additional Domum Ornamentum intermediate material support.
+* Improved request filtering.
+* Improved documentation and setup guides.
+* Broader modpack compatibility testing.
+* Minor performance and code quality improvements.
+
+The project intentionally avoids replacing MineColonies logistics, crafting, or courier systems.
 
 ---
 
