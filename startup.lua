@@ -86,15 +86,23 @@ local config = {
         ["minecraft:glass_pane"] = true,
         ["minecraft:bricks"] = true,
         ["minecraft:brick"] = true,
+        ["minecraft:lapis_block"] = true,
+        ["minecraft:emerald_block"] = true,
 
         -- Fuel / metals
         ["minecraft:coal"] = true,
         ["minecraft:coal_block"] = true,
         ["minecraft:charcoal"] = true,
-        ["minecraft:iron_ingot"] = true,
         ["minecraft:copper_ingot"] = true,
+        ["minecrafT:copper_block"] = true,
+        ["minecraft:iron_ingot"] = true,
+        ["minecraft:iron_block"] = true,
+        ["minecraft:gold_ingot"] = true,
+        ["minecraft:gold_block"] = true,
         ["minecraft:diamond"] = true,
+        ["minecraft:diamond_block"] = true,
         ["minecraft:netherite_ingot"] = true,
+        ["minecraft:netherite_block"] = true,
 
         -- Food
         ["minecraft:beef"] = true,
